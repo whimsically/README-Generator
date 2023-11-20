@@ -54,13 +54,23 @@ function init() {
         },
         {
             type: 'input',
+            message: 'Please list any credits for the project',
+            name: 'credits'
+        },
+        {
+            type: 'input',
+            message: 'Please input the file path for your screenshot',
+            name: 'screenshot'
+        },
+        {
+            type: 'input',
             message: 'What is your GitHub url?',
             name: 'github'
         },
     ])
     .then((response) =>
         //uses the writeToFile function and generateMarkdown function from other file
-        writeToFile('READMEtest.md', generateMarkdown(response))
+        writeToFile('README-generated.md', generateMarkdown(response))
     )
 }
 // Function call to initialize app
