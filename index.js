@@ -1,8 +1,15 @@
-// requiring inquirer
+// requiring inquirer and file system library
 const inquirer = require('inquirer');
+const fs = require('fs');
+//adding generateMarkdown file
+const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+//function to write to README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+    //writes either the error that occurred or 'Success!' if there is none
+    err ? console.error(err) : console.log('Success!'));
+}
 
 //inquirer prompts user for input
 function init() {
@@ -33,7 +40,7 @@ function init() {
             type: 'list',
             message: 'What license is your project using?',
             name: 'license',
-            choices: []
+            choices: ['MIT', 'Apache', 'GNU']
         },
         {
             type: 'input',
@@ -51,7 +58,10 @@ function init() {
             name: 'github'
         },
     ])
+    .then((response) =>
+        //uses the writeToFile function and generateMarkdown function from other file
+        writeToFile('READMEtest.md', generateMarkdown(response))
+    )
 }
-
 // Function call to initialize app
 init();
