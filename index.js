@@ -40,7 +40,19 @@ function init() {
             type: 'list',
             message: 'What license is your project using?',
             name: 'license',
-            choices: ['MIT', 'Apache', 'GNU']
+            choices: ['Apache License 2.0',
+            'GNU General Public License 3.0',
+            'MIT License',
+            'BSD 2-Clause License',
+            'BSD 3-Clause License',
+            'Boost Software License 1.0',
+            'Creative Commons Zero 1.0 Universal',
+            'Eclipse Public License 2.0',
+            'GNU Affero General Public License 3.0',
+            'GNU General Public License 2.0',
+            'GNU Lesser General Public License 2.1',
+            'Mozilla Public License 2.0',
+            'The Unlicense']
         },
         {
             type: 'input',
@@ -64,9 +76,14 @@ function init() {
         },
         {
             type: 'input',
-            message: 'What is your GitHub url?',
+            message: 'What is your GitHub username?',
             name: 'github'
         },
+        {
+            type: 'input',
+            message: 'What email address can you be reached at for questions?',
+            name: 'email'
+        }
     ])
     .then((response) =>
         //uses the writeToFile function and generateMarkdown function from other file
